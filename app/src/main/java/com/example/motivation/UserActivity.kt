@@ -27,6 +27,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
     private fun handleSave() {
         val userName = binding.editName.text.toString()
         if (userName != "") {
+            UserPreferences(this).store("USER_NAME", userName)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         } else {
